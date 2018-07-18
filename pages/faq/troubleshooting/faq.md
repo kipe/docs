@@ -23,6 +23,8 @@ title: FAQs
 * [If the device is installed behind a proxy/firewall and can’t be reachable on Internet via direct connection, what are the pitfalls?](#if-the-device-is-installed-behind-a-proxy-firewall-and-can-t-be-reachable-on-internet-via-direct-connection-what-are-the-pitfalls-)
 * [How do you secure your own “cloud” to prevent malicious attack which may allow attacker to break-in our systems?](#how-do-you-secure-your-own-cloud-to-prevent-malicious-attack-which-may-allow-attacker-to-break-in-our-systems-)
 * [What does it mean when a device type is discontinued?](#what-does-it-mean-when-a-device-type-is-discontinued-)
+* [I have a device that is not on the supported devices list. Can it run on resin.io?](#i-have-a-device-that-is-not-on-the-supported-devices-list-can-it-run-on-resin-io-)
+
 
 ##### Can I use multiple containers?
 Multiple container applications are supported, beginning with resinOS v2.12.0. To run multiple containers, you will need to create or upgrade to a [starter or microservices type application][app-types] and include a `docker-compose.yml` file at the root of your project. You can reference the [multicontainer documentation][multicontainer] for more details on the supported configurations.
@@ -132,7 +134,11 @@ The resin.io device supervisor needs to be able to access our cloud services in 
 Generally, we try to follow good OPSEC practices for our systems. We support 2FA for user accounts and force all the connections to be over HTTPS. More details on our approach can be found on our [security page][security].
 
 ##### What does it mean when a device type is discontinued?
-Discontinued devices will no longer be actively supported by resin.io. This means we will no longer provide prebuilt versions of resinOS for these devices, and we will not be resolving any issues related to these boards. In addition, it will no longer be possible to create applications for these device types, although existing applications and their devices will still function. If you would like to keep your discontinued devices updated with the latest resinOS changes, you can [build your own](https://github.com/resin-os/meta-resin/blob/master/contributing-device-support.md) board-specific versions using our [open source repos](https://github.com/resin-os). Please contact sales@resin.io with any questions regarding continued device support.
+Discontinued devices will no longer be actively supported by resin.io. This means we will no longer provide prebuilt versions of resinOS for these devices, and we will not be resolving any issues related to these boards. In addition, it will no longer be possible to create applications for these device types, although existing applications and their devices will still function. If you would like to keep your discontinued devices updated with the latest resinOS changes, you can [build your own][build-your-own] board-specific versions using our [open source repos][resinOS]. Please contact sales@resin.io with any questions regarding continued device support.
+
+##### I have a device that is not on the supported devices list. Can it run on resin.io?
+
+There are a few options for devices that do not have an official device type on resin.io. If your device has an x86 architecture, you can try the [Intel NUC][nuc] image, which is built to support generic x86 devices. For other devices, you can [build your own][build-your-own] version of resinOS using our [open source repos][resinOS]. To discuss custom board support, please contact sales@resin.io
 
 [forums]:https://forums.resin.io/c/troubleshooting
 [device-types]:/reference/base-images/devicetypes
@@ -144,3 +150,6 @@ Discontinued devices will no longer be actively supported by resin.io. This mean
 [security]:/learn/welcome/security
 [persistent-storage]:/learn/develop/runtime/#persistent-storage
 [named-volumes]:/learn/develop/multicontainer/#named-volumes
+[resinOS]:https://github.com/resin-os
+[build-your-own]:https://github.com/resin-os/meta-resin/blob/master/contributing-device-support.md
+[nuc]:/learn/getting-started/intel-nuc/nodejs/
